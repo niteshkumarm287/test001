@@ -1,17 +1,17 @@
-terraform {
-  required_providers {
-    datadog = {
-      source = "DataDog/datadog"
-      api_key = "c821b11ac7224dd19987266ef6a0afe6"
-      app_key = "0448307be58a0b4baf87f3bda610c4643fa659e6"
-    }
+resource "datadog_monitor" "foo" {
+  name               = "Name for monitor foo"
+  type               = "metric alert"
+  message            = "Monitor triggered. Notify: @hipchat-channel"
+  escalation_message = "Escalation message @pagerduty"
+
+  query = "avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4"
+
+  monitor_thresholds {
+    warning  = 2
+    critical = 4
   }
-}
 
+  include_tags = true
 
-resource "datadog_monitor" "cpumonitor2" {
-  name = "cpu monitor2"
-  type = "metric alert"
-  message = "CPU usage alert"
-  query = "avg(last_1m):avg:system.cpu.system{*} by {host} > 60"
+  tags = ["foo:bar", "team:fooBar"]
 }
