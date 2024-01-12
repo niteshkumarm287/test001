@@ -2,13 +2,10 @@ terraform {
   required_providers {
     datadog = {
       source = "DataDog/datadog"
+      api_key = "c821b11ac7224dd19987266ef6a0afe6"
+      app_key = "0448307be58a0b4baf87f3bda610c4643fa659e6"
     }
   }
-}
-
-provider "datadog" {
-  api_key = "c821b11ac7224dd19987266ef6a0afe6"
-  app_key = "0448307be58a0b4baf87f3bda610c4643fa659e6"
 }
 
 
