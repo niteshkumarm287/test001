@@ -1,4 +1,4 @@
-resource "datadog_monitor" "foo" {
+resource "datadog_monitor" "fooo" {
   name               = "Name for monitor foo"
   type               = "metric alert"
   message            = "Monitor triggered. Notify: @hipchat-channel"
