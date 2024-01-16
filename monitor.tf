@@ -13,8 +13,8 @@ provider "datadog" {
 
  
 resource "datadog_monitor" "cpumonitor" {
-  name = "cpu monitor"
+  name = "cpu monitor 1"
   type = "metric alert"
-  message = "CPU usage alert"
+  message = "CPU usage alert 1"
   query = "avg(last_1m):avg:system.cpu.system{*} by {host} > 60"
 }
